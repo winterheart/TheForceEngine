@@ -3,6 +3,7 @@
 #include <TFE_System/types.h>
 #include <TFE_System/profiler.h>
 #include <TFE_ScriptSystem/scriptSystem.h>
+#include <TFE_ScriptSystem/ForceScript/forceScript.h>
 #include <TFE_InfSystem/infSystem.h>
 #include <TFE_Editor/editor.h>
 #include <TFE_FileSystem/fileutil.h>
@@ -493,6 +494,9 @@ int main(int argc, char* argv[])
 	TFE_Level::init();
 	TFE_Palette::createDefault256();
 	TFE_FrontEndUI::init();
+
+	// Test
+	TFE_ForceScript::init();
 			
 	TFE_Renderer* renderer = TFE_Renderer::create(TFE_RENDERER_SOFTWARE_CPU);
 	if (!renderer)
@@ -632,6 +636,9 @@ int main(int argc, char* argv[])
 
 		TFE_FRAME_END();
 	}
+
+	// Test
+	TFE_ForceScript::destroy();
 
 	// Cleanup
 	TFE_FrontEndUI::shutdown();

@@ -10,6 +10,9 @@
 #include <assert.h>
 #include <algorithm>
 
+// VS: __FUNCSIG__
+// GCC: __PRETTY_FUNCTION__
+
 namespace TFE_ScriptSystem
 {
 	static const char* c_scriptDir[] =
@@ -87,7 +90,7 @@ namespace TFE_ScriptSystem
 
 		return true;
 	}
-
+		
 	void shutdown()
 	{
 		for (u32 i = 0; i < SCRIPT_TYPE_COUNT; i++)

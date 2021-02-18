@@ -98,6 +98,7 @@ namespace TFE_Console
 	void startClose();
 	   
 	void addToHistory(const char* str);
+	void print(const char* buffer, ...);
 
 	u32 getCVarCount();
 	const CVar* getCVarByIndex(u32 index);

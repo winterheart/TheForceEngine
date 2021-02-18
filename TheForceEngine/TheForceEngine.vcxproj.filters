@@ -161,6 +161,9 @@
     <Filter Include="Source\TFE_Archive\zip">
       <UniqueIdentifier>{f069b311-4842-4982-aa48-6848b3f3fa66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\TFE_ScriptSystem\ForceScript">
+      <UniqueIdentifier>{e8ab498d-052e-43f5-bcef-974b436eb8c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -709,6 +712,30 @@
     <ClInclude Include="TFE_Archive\zipArchive.h">
       <Filter>Source\TFE_Archive</Filter>
     </ClInclude>
+    <ClInclude Include="TFE_ScriptSystem\ForceScript\forceScript.h">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClInclude>
+    <ClInclude Include="TFE_ScriptSystem\ForceScript\tfs_lexer.h">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClInclude>
+    <ClInclude Include="TFE_ScriptSystem\ForceScript\tfs_compiler.h">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClInclude>
+    <ClInclude Include="TFE_ScriptSystem\ForceScript\tfs_vm.h">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClInclude>
+    <ClInclude Include="TFE_ScriptSystem\ForceScript\tfs_hashTable.h">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClInclude>
+    <ClInclude Include="TFE_ScriptSystem\ForceScript\tfs_value.h">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClInclude>
+    <ClInclude Include="TFE_ScriptSystem\ForceScript\tfs_codeBlock.h">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClInclude>
+    <ClInclude Include="TFE_ScriptSystem\ForceScript\tfs_object.h">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -1157,6 +1184,30 @@
     </ClCompile>
     <ClCompile Include="TFE_Archive\zipArchive.cpp">
       <Filter>Source\TFE_Archive</Filter>
+    </ClCompile>
+    <ClCompile Include="TFE_ScriptSystem\ForceScript\forceScript.cpp">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClCompile>
+    <ClCompile Include="TFE_ScriptSystem\ForceScript\tfs_lexer.cpp">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClCompile>
+    <ClCompile Include="TFE_ScriptSystem\ForceScript\tfs_compiler.cpp">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClCompile>
+    <ClCompile Include="TFE_ScriptSystem\ForceScript\tfs_vm.cpp">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClCompile>
+    <ClCompile Include="TFE_ScriptSystem\ForceScript\tfs_hashTable.cpp">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClCompile>
+    <ClCompile Include="TFE_ScriptSystem\ForceScript\tfs_value.cpp">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClCompile>
+    <ClCompile Include="TFE_ScriptSystem\ForceScript\tfs_codeBlock.cpp">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
+    </ClCompile>
+    <ClCompile Include="TFE_ScriptSystem\ForceScript\tfs_object.cpp">
+      <Filter>Source\TFE_ScriptSystem\ForceScript</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

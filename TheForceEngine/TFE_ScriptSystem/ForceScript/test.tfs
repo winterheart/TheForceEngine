@@ -1,0 +1,56 @@
+// Test script
+#import "test2.tfs"
+
+/***********************************************************************************
+   TFE "Force Script" (TFS)
+ A simple C-like scripting language with the following features:
+  * dynamic types with optional type checking.
+  * tight integration with TFE.
+  * single compile modules with instanced state, which allows each
+    instance of a running script to have its own local state.
+  * byte-code interpreter with cached compilation.
+  * flexible rules regarding operations on different types.
+  * support for structs but not classes - the goal is to keep things simple.
+  * #import to share functionality, this imports the whole file.
+  * No direct access to the system, only functionality provided by TFE can be used.
+  * Easy and direct sharing of native functions, structs and variables.
+  * Implicit type casting, no need to manually cast types even when specified - 
+    however there may be runtime errors if some combination is not resolvable
+	(for example - assigning a Vec3 to a float type).
+**************************************************************************************/
+
+// var is any type as defined by the assignment
+// int, float, string, bool, ... are type hints
+
+struct Vec3
+{
+	float x = 0.0
+	float y = 0.0
+	float z = 0.0
+}
+
+// Script global variable - visible anywhere in this module.
+// Other instances of this script have their own version - so this is a way
+// of tracking state for this instance.
+Vec3 globalVector
+
+// Function return is optional
+// Inputs can be of a specific type or "var" - which can map to any type.
+testFunction(var a = 0.0, var b = 0.0, var c = 0.0, var d = 0.0)
+{
+	// types are inferred based on the assignments.
+	// "var" type can also be dynamically changed.
+	var x = 12.3 * 2.0 - 3.0 + a
+	var y = 1.7 + 5.6/2.0 - b
+	var z = x * (y + 2.0) + c - d
+	// test support for float literals starting with the decimal.
+	var w = x > 0.0 ? .1243 : .3421
+	
+	return z
+}
+
+anotherFunction(var str = "")
+{
+	print("Hello World")
+	print(str)
+}

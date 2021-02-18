@@ -1,0 +1,14 @@
+#pragma once
+//////////////////////////////////////////////////////////////////////
+// The Force Engine Script System
+//////////////////////////////////////////////////////////////////////
+
+#include <TFE_System/types.h>
+
+namespace TFE_ForceScript
+{
+	namespace TFS_Compiler
+	{
+		bool compile(const char* buffer, size_t len);
+	}
+}

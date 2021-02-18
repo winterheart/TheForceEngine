@@ -1,0 +1,371 @@
+// Development Script
+// This is an area for testing new features as the compiler and VM are developed.
+//////////////////////////////////////////////////////////////////////////////////
+// Speed tests fib(35):			 vs Native	  vs Angel Script
+//===========================================================
+// Angel Script       935 ms	   35x			1x
+// The Force Script  1300 ms	   48x			1.4x
+// Native (C++)        27 ms	    1x			0.03x
+// 
+// Goal: Improve TFS to match AS
+
+///////////////////////////////////////////////////////
+// Test basic expressions: +-*/ and grouping ().
+print "=================================";
+print "Test basic expressions: +-*/ and grouping (); Correct = -25";
+print -(1 + 2 * 3 * (7 - 3));
+
+///////////////////////////////////////////////////////
+// Test unary boolean operations.
+print "=================================";
+print "Test unary boolean operations; Correct = false, true, true, true";
+// Test unary boolean operations.
+// Result = false
+print !true;
+// Result = true
+print !false;
+// Result = true
+print !!11;
+// Result = true
+print !0;
+
+///////////////////////////////////////////////////////
+// Test unary boolean operations.
+print "=================================";
+print "Test binary boolean operations; Correct = true, false, true, false";
+// Test binary boolean operations.
+// Result = true
+print 3 + 2 > 1 + 3;
+// Result = false
+print 3 + 2 < 1 + 3;
+// Result = true
+print 13.20 >= 13.02;
+// Result = false
+print 13.20 <= 13.02;
+
+///////////////////////////////////////////////////////
+// Test Strings
+print "=================================";
+print "Test Strings";
+print "This is a string.";
+
+///////////////////////////////////////////////////////
+// Test string boolean ops.
+print "=================================";
+print "Test string boolean ops; Correct = false, true, true, false";
+// Result = false
+print "This is a string" == "This is not the same";
+// Result = true
+print "This is a string" == "This is a string";
+// Result = true
+print "This is a string" != "This is not the same";
+// Result = false
+print "This is a string" != "This is a string";
+
+///////////////////////////////////////////////////////
+// Test String concatenation
+print "=================================";
+print "Test string concatenation; Correct = 'Hello World'";
+// Result = "Hello World"
+print "Hello" + " " + "World";
+
+///////////////////////////////////////////////////////
+// Test String concatenation combined with boolean tests.
+print "=================================";
+print "Test String concatenation combined with boolean tests; Correct = true, true, true";
+// Result = true
+print "Hello" + " " + "World" == "Hello World";
+// Result = true
+print "This is a test" != "Hello" + " " + "World";
+// Result = true
+print "This is a test" == "This " + "is a" + " test";
+
+///////////////////////////////////////////////////////
+// Test local variable read in its own initializer.
+// This should generate an error.
+//{
+//  var a = 1;
+//  {
+//		var a = a;
+//  }
+//}
+
+///////////////////////////////////////////////////////
+// Test local variable shadowing.
+print "=================================";
+print "Test local variable shadowing; Correct = 2, 1, 1, 3";
+{
+	var a = 1;
+	{
+		var a = 2;
+		print a;
+	}
+	print a;
+	
+	var c = 3;
+	print a;
+	print c;
+}
+
+///////////////////////////////////////////////////////
+// Test statements, global vs local variables (semi-colons are temporary).
+print "=================================";
+print "Test statements, global vs local variables (semi-colons are temporary).";
+var testVar = "test";
+{
+	var localVar = "local variable";
+	print 1 + 2;
+	print 2 + 3;
+	print "This is a string.";
+	testVar = "Changed testVar";
+	print testVar;
+	print localVar;
+}
+
+///////////////////////////////////////////////////////
+// Test conditionals
+print "=================================";
+print "Test conditionals; Correct = true, false, true but no else, test = 2.";
+{
+	var cond = true;
+	if (cond) print "true";
+	else print "false";
+
+	cond = !cond;
+	if (cond) print "true";
+	else print "false";
+
+	cond = true;
+	if (cond) print "true but no else.";
+	if (!cond) print "this is an error.";
+
+	var test = 2;
+	if (test == 1) print "test = 1";
+	else if (test == 2) print "test = 2";
+	else print "test = 3";
+}
+
+///////////////////////////////////////////////////////
+// Test conditionals + blocks
+print "=================================";
+print "Test conditionals & blocks; Correct = 11.";
+var x = 0;
+if (x < 1)
+{
+	x = x + 10;
+	x = x + 1;
+}
+else
+{
+	x = x - 10;
+	x = x - 1;
+}
+print x;
+
+///////////////////////////////////////////////////////
+// Test && and ||
+print "=================================";
+print "Test boolean logic: '&&' and '||'; Correct = either a or b is false, a or b is true.";
+var a = false;
+var b = true;
+if (a && b)
+{
+	print "a and b are true.";
+}
+else
+{
+	print "either a or b is false.";
+}
+if (a || b)
+{
+	print "a or b is true.";
+}
+else
+{
+	print "both a and b are false.";
+}
+
+///////////////////////////////////////////////////////
+// Test while() loops.
+print "=================================";
+print "Test 'while' loops.";
+var i = 0;
+var x = 1;
+while (i < 10)
+{
+	x = x * 2;
+	i = i + 1;
+}
+print "while loop";
+print x;
+
+///////////////////////////////////////////////////////
+// Test for() loops.
+print "=================================";
+print "Test 'for' loops.";
+{
+	var x = 1;
+	for (var i = 1; i < 10; i++)
+	{
+		x = x * 2;
+	}
+	print "for loop";
+	print x;
+}
+
+///////////////////////////////////////////////////////
+// Test Functions
+print "=================================";
+print "Test Functions.";
+testFunc(x)
+{
+	print "test in testFunc()";
+	print x;
+}
+
+main()
+{
+	print "test in main()";
+	testFunc(37.2);
+}
+
+recursive(x, i)
+{
+	x /= 2.0;
+	i++;
+	
+	if (x > 1.0)
+	{
+		return recursive(x, i);
+	}
+	
+	return i;
+}
+// This is just scoped for now since there is no way to specify an entrypoint.
+{
+	main();
+	print "scope test";
+	
+	var count = recursive(512, 0);
+	print "recursive count:";
+	print count;
+}
+
+///////////////////////////////////////////////////////
+// Test Native functions.
+print "=================================";
+print "Test Native Functions & Recursion.";
+fib(n)
+{
+	if (n < 2) return n;
+	return fib(n - 2) + fib(n - 1);
+}
+// Scoped for now until proper entry points are implemented.
+{
+	var start = clock();	// clock() is a native function.
+	// Enable for speed testing.
+	//print fib(35);
+	print fib(5);
+	print clock() - start;
+}
+
+///////////////////////////////////////////////////////
+// Test Native function arguments.
+print "=================================";
+print "Test Native Functions with arguments";
+{
+	print sqrt(16.0);
+}
+
+///////////////////////////////////////////////////////
+// Test structs
+print "=================================";
+print "Test Structs";
+struct vec3
+{
+	var x;
+	var y;
+	var z;
+}
+
+createVec3(x, y, z)
+{
+	var v3 = vec3();
+	v3.x = x;
+	v3.y = y;
+	v3.z = z;
+	// TODO: commenting out the return here causes a crash, instead this should be a runtime error.
+	return v3;
+}
+
+addVec3(a, b)
+{
+	var res = vec3();	// This allocates a vec3() right now - TODO: stack allocation unless this is a global.
+	res.x = a.x + b.x;
+	res.y = a.y + b.y;
+	res.z = a.z + b.z;
+	return res;
+}
+
+printVec3(v3)
+{
+	print v3.x;
+	print v3.y;
+	print v3.z;
+}
+// main
+{
+	var up = createVec3(1.0, 2.0, 3.0);
+	var down = createVec3(4.0, 5.0, 6.0);
+	var ud = addVec3(up, down);
+	printVec3(ud);
+}
+
+///////////////////////////////////////////////////////
+// Test increment and decrement
+print "=================================";
+print "Test Increment & Decrement";
+{
+	// Prefix
+	print "PREFIX";
+	var x = 3;
+	++x;
+	var y = 4;
+	++y;
+	
+	print x;
+	print y;
+	
+	--x;
+	print x;
+	
+	print --x;
+	print ++y;
+		
+	// Postfix
+	print "POSTFIX";
+	var z = 10;
+	print z;
+	z++;
+	print z;
+	
+	print z--;
+	print z;
+}
+
+///////////////////////////////////////////////////////
+// Test +=, -=, etc.
+print "=================================";
+print "Test +=, -=, *=, /=";
+{
+	var z = 10;
+	print z;
+	z += 5;
+	print z;
+	z -= 5;
+	print z;
+	z *= 2;
+	print z;
+	z /= 2;
+	print z;
+}

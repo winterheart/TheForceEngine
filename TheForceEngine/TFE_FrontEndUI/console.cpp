@@ -40,6 +40,7 @@ namespace TFE_Console
 	static std::vector<HistoryEntry> s_history;
 	static std::vector<std::string> s_commandHistory;
 	static char s_cmdLine[4096];
+	static char s_tmpBuffer[4096];
 
 	static const Vec4f c_historyDefaultColor = { 0.5f, 0.5f, 0.75f, 1.0f };
 	static const Vec4f c_historyCmdColor     = { 0.5f, 1.0f, 1.0f, 1.0f };
@@ -611,6 +612,89 @@ namespace TFE_Console
 	void addToHistory(const char* str)
 	{
 		s_history.push_back({ c_historyLogColor, str });
+	}
+
+	s32 convertHexString(const char* str)
+	{
+		s32 v[2] = { 0 };
+
+		for (s32 i = 0; i < 2; i++)
+		{
+			if (str[i] >= '0' && str[i] <= '9')
+			{
+				v[i] = str[i] - '0';
+			}
+			else if (str[i] >= 'a' && str[i] <= 'f')
+			{
+				v[i] = str[i] - 'a' + 10;
+			}
+			else if (str[i] >= 'A' && str[i] <= 'F')
+			{
+				v[i] = str[i] - 'A' + 10;
+			}
+		}
+
+		return v[0] * 16 + v[1];
+	}
+
+	void print(const char* buffer, ...)
+	{
+		va_list arg;
+		va_start(arg, buffer);
+		vsprintf(s_tmpBuffer, buffer, arg);
+		va_end(arg);
+
+		// Handle our own colors
+		Vec4f color = c_historyLogColor;
+		const char* argBuffer = s_tmpBuffer;
+		s32 len = (s32)strlen(s_tmpBuffer);
+		if (len > 2 && s_tmpBuffer[0] == '/' && s_tmpBuffer[1] == 'c')
+		{
+			argBuffer = s_tmpBuffer + 2;
+			s32 hexValue = 0;
+			s32 count = 0;
+			while (len > 0 && ((argBuffer[count] >= '0' && argBuffer[count] <= '9') || (argBuffer[count] >= 'a' && argBuffer[count] <= 'f') || (argBuffer[count] >= 'A' && argBuffer[count] <= 'F')))
+			{
+				count++;
+				len--;
+			}
+
+			const f32 scale = 1.0f / 255.0f;
+			if (count >= 8)	// argb
+			{
+				const char colorIndices[] = { 3, 0, 1, 2 };
+				for (s32 i = 0; i < 8; i += 2)
+				{
+					s32 value = convertHexString(&argBuffer[i]);
+					color.m[colorIndices[i >> 1]] = f32(value) * scale;
+				}
+			}
+			else if (count >= 6)	// rgb
+			{
+				const char colorIndices[] = { 0, 1, 2 };
+				for (s32 i = 0; i < 6; i += 2)
+				{
+					s32 value = convertHexString(&argBuffer[i]);
+					color.m[colorIndices[i >> 1]] = f32(value) * scale;
+				}
+			}
+			else if (count >= 2)	// gray
+			{
+				s32 value = convertHexString(argBuffer);
+				f32 scaled = f32(value) * scale;
+				color.x = scaled;
+				color.y = scaled;
+				color.z = scaled;
+			}
+
+			argBuffer += count;
+			if (*argBuffer == ' ')
+			{
+				argBuffer++;
+			}
+		}
+
+		s_history.push_back({ color, argBuffer });
 	}
 
 	u32 getCVarCount()
