@@ -1,5 +1,4 @@
 #include "threadLinux.h"
-#include "../../log.h"
 
 ThreadLinux::ThreadLinux(const char* name, ThreadFunc func, void* userData) : Thread(name, func, userData)
 {
@@ -26,7 +25,7 @@ bool ThreadLinux::run()
 	else
 	{
         m_handle = 0;
-		LOG( LOG_ERROR, "Thread \"%s\" cannot be run", m_name );
+		//LOG( LOG_ERROR, "Thread \"%s\" cannot be run", m_name );
 	}
 
 	return (res == 0);
@@ -42,6 +41,12 @@ void ThreadLinux::resume()
 {
 	if (!m_handle) { return; }
 	//to-do.
+}
+
+void ThreadLinux::waitOnExit()
+{
+  if (!m_handle) { return; }
+  //to-do.
 }
 
 //factory

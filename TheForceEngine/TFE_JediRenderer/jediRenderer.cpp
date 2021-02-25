@@ -12,12 +12,12 @@
 
 #include <TFE_System/profiler.h>
 // VVV - this needs to be moved or fixed.
-#include <TFE_Game/gameObject.h>
 #include <TFE_Asset/levelObjectsAsset.h>
+#include <TFE_Asset/modelAsset_Jedi.h>
 #include <TFE_Asset/spriteAsset_Jedi.h>
-#include <TFE_Asset/modelAsset_jedi.h>
-#include <TFE_Game/level.h>
 #include <TFE_FrontEndUI/console.h>
+#include <TFE_Game/gameObject.h>
+#include <TFE_Game/level.h>
 #include <TFE_System/memoryPool.h>
 
 namespace TFE_JediRenderer
@@ -49,8 +49,10 @@ namespace TFE_JediRenderer
 		// Setup Debug CVars.
 		s_maxWallCount = 0xffff;
 		s_maxDepthCount = 0xffff;
-		CVAR_INT(s_maxWallCount, "d_maxWallCount", CVFLAG_DO_NOT_SERIALIZE, "Maximum wall count for a given sector.");
-		CVAR_INT(s_maxDepthCount, "d_maxDepthCount", CVFLAG_DO_NOT_SERIALIZE, "Maximum adjoin depth count.");
+                TFE_Console::registerCVarInt("d_maxWallCount", CVFLAG_DO_NOT_SERIALIZE, &s_maxWallCount, "Maximum wall count for a given sector.");
+                TFE_Console::registerCVarInt("d_maxDepthCount", CVFLAG_DO_NOT_SERIALIZE, &s_maxDepthCount, "Maximum adjoin depth count.");
+		//CVAR_INT(s_maxWallCount, "d_maxWallCount", CVFLAG_DO_NOT_SERIALIZE, "Maximum wall count for a given sector.");
+		//CVAR_INT(s_maxDepthCount, "d_maxDepthCount", CVFLAG_DO_NOT_SERIALIZE, "Maximum adjoin depth count.");
 
 		CCMD("rsetSubRenderer", console_setSubRenderer, 1, "Set the sub-renderer - valid values are: Classic_Fixed, Classic_Float, Classic_GPU");
 		CCMD("rgetSubRenderer", console_getSubRenderer, 0, "Get the current sub-renderer.");

@@ -1,5 +1,5 @@
+#include <TFE_Asset/modelAsset_Jedi.h>
 #include <TFE_System/profiler.h>
-#include <TFE_Asset/modelAsset_jedi.h>
 // TODO: Either move level.h or fix it.
 #include <TFE_Game/level.h>
 
@@ -15,6 +15,9 @@
 #include "../rcommon.h"
 #include "../robject.h"
 #include "../rtexture.h"
+
+#include <climits>
+#include <cstring>
 
 using namespace TFE_JediRenderer::RClassic_Fixed;
 

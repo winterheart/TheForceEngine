@@ -13,6 +13,7 @@
 #include <TFE_System/profiler.h>
 #include <assert.h>
 #include <algorithm>
+#include <cstring>
 
 #define ENABLE_FIXED_POINT_COLUMN_RENDERING 1
 

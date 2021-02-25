@@ -4,6 +4,7 @@
 #include <TFE_RenderBackend/renderState.h>
 #include <GL/glew.h>
 #include <assert.h>
+#include <cstring>
 
 namespace GLSLParser
 {

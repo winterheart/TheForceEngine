@@ -1,4 +1,3 @@
-#pragma once
 #include <TFE_System/system.h>
 #include <TFE_FileSystem/filestream.h>
 #include <TFE_FileSystem/paths.h>
@@ -7,7 +6,8 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <io.h>
+#include <cstring>
+//#include <io.h>
 
 #ifdef _WIN32
 	#include <Windows.h>

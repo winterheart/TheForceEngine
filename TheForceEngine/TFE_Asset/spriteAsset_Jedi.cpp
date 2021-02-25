@@ -8,6 +8,7 @@
 //
 #include <assert.h>
 #include <algorithm>
+#include <cstring>
 #include <vector>
 #include <string>
 #include <map>

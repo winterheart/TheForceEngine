@@ -22,8 +22,7 @@
 #include <TFE_Ui/ui.h>
 #include <TFE_FrontEndUI/frontEndUi.h>
 #include <algorithm>
-#include <time.h>
-#include <sys/types.h>
+#include <ctime>
 #include <sys/timeb.h>
 
 // Replace with music system
@@ -374,28 +373,10 @@ void parseCommandLine(s32 argc, char* argv[])
 
 void generateScreenshotTime()
 {
-	__time64_t time;
-	_time64(&time);
-	strcpy(s_screenshotTime, _ctime64(&time));
-
-	// Replace ':' with '_'
-	size_t len = strlen(s_screenshotTime);
-	for (size_t i = 0; i < len; i++)
-	{
-		if (s_screenshotTime[i] == ':')
-		{
-			s_screenshotTime[i] = '_';
-		}
-		else if (s_screenshotTime[i] == ' ')
-		{
-			s_screenshotTime[i] = '-';
-		}
-		if (s_screenshotTime[i] == '\n')
-		{
-			s_screenshotTime[i] = 0;
-			break;
-		}
-	}
+	time_t t = time(nullptr);
+	struct tm *tmp;
+	tmp = localtime(&t);
+	strftime(s_screenshotTime, sizeof(s_screenshotTime), "%Y_%m_%d_%H_%M_%S", tmp);
 }
 
 int main(int argc, char* argv[])

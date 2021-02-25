@@ -8,6 +8,7 @@
 #include <TFE_System/parser.h>
 #include <assert.h>
 #include <algorithm>
+#include <cstring>
 #include <map>
 #include <string>
 

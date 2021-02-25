@@ -8,6 +8,8 @@
 #include "../rcommon.h"
 #include "../rtexture.h"
 
+#include <cstring>
+
 using namespace TFE_JediRenderer::RClassic_GPU;
 
 namespace TFE_JediRenderer

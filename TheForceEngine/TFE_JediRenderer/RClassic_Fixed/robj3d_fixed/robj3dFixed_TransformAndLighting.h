@@ -3,9 +3,9 @@
 // Wall
 // Dark Forces Derived Renderer - Wall functions
 //////////////////////////////////////////////////////////////////////
-#include <TFE_System/types.h>
-#include <TFE_Asset/modelAsset_Jedi.h>
 #include "../../rmath.h"
+#include <TFE_Asset/modelAsset_Jedi.h>
+#include <TFE_System/types.h>
 struct SecObject;
 
 #define VSHADE_MAX_INTENSITY (31 * ONE_16)

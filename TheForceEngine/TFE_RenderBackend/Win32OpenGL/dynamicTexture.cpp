@@ -3,6 +3,7 @@
 #include <TFE_System/system.h>
 #include <GL/glew.h>
 #include <assert.h>
+#include <cstring>
 
 std::vector<u8> DynamicTexture::s_tempBuffer;
 // Default OpenGL pixel unpack alignment.

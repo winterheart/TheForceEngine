@@ -2,6 +2,7 @@
 #include "gobArchive.h"
 #include <assert.h>
 #include <algorithm>
+#include <cstring>
 
 GobArchive::~GobArchive()
 {

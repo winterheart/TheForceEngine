@@ -4,6 +4,7 @@
 #include <TFE_RenderBackend/indexBuffer.h>
 #include <TFE_System/profiler.h>
 #include <assert.h>
+#include <cstring>
 #include <vector>
 
 namespace TFE_PostProcess

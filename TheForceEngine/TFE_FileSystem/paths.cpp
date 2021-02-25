@@ -1,4 +1,3 @@
-#pragma once
 #include "paths.h"
 #include "fileutil.h"
 #include <string>

@@ -1,7 +1,7 @@
-#pragma once
 #include "fileutil.h"
 
 #include <assert.h>
+#include <cstring>
 #include <stdio.h>
 #include <stdlib.h>
 #include <io.h>

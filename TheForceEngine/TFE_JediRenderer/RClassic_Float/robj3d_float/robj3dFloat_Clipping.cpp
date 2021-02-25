@@ -5,6 +5,7 @@
 #include "../../fixedPoint.h"
 #include "../../rmath.h"
 #include "../../rcommon.h"
+#include <cstring>
 
 namespace TFE_JediRenderer
 {

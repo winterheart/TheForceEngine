@@ -4,6 +4,7 @@
 #include <TFE_Archive/archive.h>
 #include <assert.h>
 #include <algorithm>
+#include <cstring>
 #include <string>
 #include <vector>
 #include <map>

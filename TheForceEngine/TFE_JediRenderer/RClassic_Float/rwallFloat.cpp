@@ -13,6 +13,9 @@
 #include "../rcommon.h"
 #include "../robject.h"
 
+#include <climits>
+#include <cstring>
+
 namespace TFE_JediRenderer
 {
 

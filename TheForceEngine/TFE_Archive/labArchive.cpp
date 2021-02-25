@@ -2,6 +2,7 @@
 #include "labArchive.h"
 #include <assert.h>
 #include <algorithm>
+#include <cstring>
 
 LabArchive::~LabArchive()
 {

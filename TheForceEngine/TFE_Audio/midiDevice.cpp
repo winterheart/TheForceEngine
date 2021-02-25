@@ -2,6 +2,7 @@
 #include "RtMidi.h"
 #include <TFE_System/system.h>
 #include <algorithm>
+#include <cstring>
 
 #ifdef _WIN32
 // Windows library required to access the midi device(s).

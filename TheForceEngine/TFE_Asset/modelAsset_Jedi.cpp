@@ -1,15 +1,16 @@
-#include "modelAsset_jedi.h"
+#include "modelAsset_Jedi.h"
 #include "textureAsset.h"
-#include <TFE_System/system.h>
-#include <TFE_Asset/assetSystem.h>
 #include <TFE_Archive/archive.h>
+#include <TFE_Asset/assetSystem.h>
 #include <TFE_System/parser.h>
+#include <TFE_System/system.h>
 
 // TODO: dependency on JediRenderer, this should be refactored...
 #include <TFE_JediRenderer/fixedPoint.h>
 #include <TFE_JediRenderer/rlimits.h>
 
 #include <assert.h>
+#include <cstring>
 #include <map>
 #include <algorithm>
 

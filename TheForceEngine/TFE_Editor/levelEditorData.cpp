@@ -21,6 +21,7 @@
 #include <TFE_Polygon/polygon.h>
 #include <assert.h>
 #include <algorithm>
+#include <cstring>
 
 namespace LevelEditorData
 {

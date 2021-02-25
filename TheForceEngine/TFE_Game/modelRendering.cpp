@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <vector>
 #include <assert.h>
+#include <climits>
 
 namespace TFE_ModelRender
 {

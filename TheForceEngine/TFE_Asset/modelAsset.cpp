@@ -5,6 +5,7 @@
 #include <TFE_Archive/archive.h>
 #include <TFE_System/parser.h>
 #include <assert.h>
+#include <cstring>
 #include <map>
 #include <algorithm>
 

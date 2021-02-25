@@ -5,6 +5,7 @@
 
 #include <TFE_System/types.h>
 #include <TFE_RenderBackend/textureGpu.h>
+#include <string>
 #include <vector>
 
 class ScreenCapture

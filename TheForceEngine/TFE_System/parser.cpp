@@ -1,5 +1,6 @@
 #include "parser.h"
 #include <algorithm>
+#include <cstring>
 
 namespace
 {

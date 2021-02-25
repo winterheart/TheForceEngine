@@ -16,10 +16,12 @@
 #include <assert.h>
 #include <algorithm>
 
+#ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN 1
 #include <Windows.h>
 #undef min
 #undef max
+#endif
 
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "sdl2.lib")
@@ -87,7 +89,7 @@ namespace TFE_RenderBackend
 		if (err != GLEW_OK)
 		{
 			printf("Failed to initialize GLEW");
-			return false;
+			return nullptr;
 		}
 		OpenGL_Caps::queryCapabilities();
 		TFE_System::logWrite(LOG_MSG, "RenderBackend", "OpenGL Device Tier: %d", OpenGL_Caps::getDeviceTier());

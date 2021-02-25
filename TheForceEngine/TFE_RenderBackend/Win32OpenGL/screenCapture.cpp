@@ -6,6 +6,7 @@
 #include <TFE_Asset/gifWriter.h>
 #include <GL/glew.h>
 #include <assert.h>
+#include <cstring>
 
 #ifdef _DEBUG
 	#define CHECK_GL_ERROR checkGlError();

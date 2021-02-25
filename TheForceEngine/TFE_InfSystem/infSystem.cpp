@@ -14,6 +14,7 @@
 #include <TFE_Asset/gameMessages.h>
 #include <TFE_Asset/vocAsset.h>
 #include <assert.h>
+#include <cstring>
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>

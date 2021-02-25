@@ -13,6 +13,20 @@
 #define MUTEX_UNLOCK(A)     LeaveCriticalSection(A)
 
 typedef CRITICAL_SECTION Mutex;
+#else
+
+#include <pthread.h>
+
+#define MUTEX_INITIALIZE(A) pthread_mutex_init(A, NULL)
+#define MUTEX_DESTROY(A)    pthread_mutex_destroy(A)
+#define MUTEX_LOCK(A)       pthread_mutex_lock(A)
+#define MUTEX_TRYLOCK(A)    pthread_mutex_trylock(A)
+#define MUTEX_UNLOCK(A)     pthread_mutex_unlock(A)
+
+typedef pthread_mutex_t Mutex;
+#endif
+
+#ifdef _WIN32
 #undef min
 #undef max
 #endif

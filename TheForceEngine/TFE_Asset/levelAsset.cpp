@@ -6,6 +6,7 @@
 #include <TFE_FileSystem/filestream.h>
 #include <assert.h>
 #include <algorithm>
+#include <cstring>
 
 namespace TFE_LevelAsset
 {

@@ -5,6 +5,7 @@
 #include "zipArchive.h"
 #include <TFE_FileSystem/fileutil.h>
 #include <assert.h>
+#include <cstring>
 #include <string>
 #include <map>
 

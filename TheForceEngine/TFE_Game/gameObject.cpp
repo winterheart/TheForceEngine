@@ -1,4 +1,3 @@
-#pragma once
 //////////////////////////////////////////////////////////////////////
 // The Force Engine Player
 // This is the player object, someday there may be more than one. :)

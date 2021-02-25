@@ -143,7 +143,8 @@ namespace TFE_GameHud
 				
 	void init(TFE_Renderer* renderer)
 	{
-		CVAR_BOOL(s_showPos, "r_showPos", 0, "Show current player position.");
+                TFE_Console::registerCVarBool("r_showPos", 0, &s_showPos, "Show current player position.");
+                //CVAR_BOOL(s_showPos, "r_showPos", 0, "Show current player position.");
 
 		s_renderer = renderer;
 		const u32 width  = TFE_RenderBackend::getVirtualDisplayWidth2D();

@@ -1,6 +1,7 @@
 #include <TFE_System/system.h>
 #include "lfdArchive.h"
 #include <algorithm>
+#include <cstring>
 
 LfdArchive::~LfdArchive()
 {

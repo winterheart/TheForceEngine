@@ -3,6 +3,8 @@
 #include "robject.h"
 #include "rcommon.h"
 
+#include <cstring>
+
 namespace TFE_JediRenderer
 {
 	void TFE_Sectors::setMemoryPool(MemoryPool* memPool)

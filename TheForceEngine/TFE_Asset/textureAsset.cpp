@@ -5,6 +5,8 @@
 #include <TFE_Archive/archive.h>
 #include <assert.h>
 #include <algorithm>
+#include <climits>
+#include <cstring>
 #include <vector>
 #include <string>
 #include <map>

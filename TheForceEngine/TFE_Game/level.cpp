@@ -22,6 +22,7 @@
 
 #include <assert.h>
 #include <algorithm>
+#include <cstring>
 
 namespace TFE_Level
 {

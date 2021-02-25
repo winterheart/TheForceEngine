@@ -1,6 +1,7 @@
 #include "memoryPool.h"
 #include <TFE_System/system.h>
 #include <algorithm>
+#include <cstring>
 
 MemoryPool::MemoryPool() : m_poolSize(0), m_waterMark(0), m_ptr(0) {}
 

@@ -13,6 +13,8 @@
 #include <synchapi.h>
 #undef min
 #undef max
+#else
+#include <ctime>
 #endif
 
 namespace TFE_System
@@ -158,6 +160,15 @@ namespace TFE_System
 	void sleep(u32 sleepDeltaMS)
 	{
 		Sleep(sleepDeltaMS);
+	}
+#else
+    void sleep(u32 sleepDeltaMS)
+    {
+		struct timespec ts{
+			.tv_sec = sleepDeltaMS / 1000,
+			.tv_nsec = (sleepDeltaMS % 1000) * 1000000
+		};
+		nanosleep(&ts, nullptr);
 	}
 #endif
 }

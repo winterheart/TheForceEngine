@@ -20,6 +20,8 @@
 #include <TFE_Game/player.h>
 #include <TFE_Audio/audioSystem.h>
 #include <assert.h>
+#include <climits>
+#include <cstring>
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>

@@ -26,10 +26,10 @@
 #include <TFE_RenderBackend/renderBackend.h>
 #include <TFE_FileSystem/filestream.h>
 #include <TFE_FileSystem/paths.h>
-#include <TFE_FileSystem/fileUtil.h>
+#include <TFE_FileSystem/fileutil.h>
 
 //Help
-#include "help/helpWindow.h"
+#include "Help/helpWindow.h"
 
 #include <TFE_Editor/Rendering/editorRender.h>
 //Rendering 2d

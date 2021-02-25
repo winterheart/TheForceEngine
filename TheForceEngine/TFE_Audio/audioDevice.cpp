@@ -1,4 +1,4 @@
-#include "AudioDevice.h"
+#include "audioDevice.h"
 #include <TFE_System/system.h>
 #include "RtAudio.h"
 
@@ -7,7 +7,7 @@
 
 namespace TFE_AudioDevice
 {
-	static RtAudio* s_device = NULL;
+	static RtAudio* s_device = nullptr;
 	static u32 s_outputDevice;
 	static u32 s_inputDevice;
 
@@ -51,7 +51,7 @@ namespace TFE_AudioDevice
 
 		RtAudio::StreamParameters  outParam;
 		RtAudio::StreamParameters  inParam;
-		RtAudio::StreamParameters* param[2] = { NULL, NULL };
+		RtAudio::StreamParameters* param[2] = { nullptr, nullptr };
 
 		outParam.deviceId = s_outputDevice;
 		outParam.nChannels = channels;

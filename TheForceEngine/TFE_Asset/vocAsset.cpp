@@ -5,6 +5,7 @@
 #include <TFE_System/parser.h>
 #include <TFE_Audio/audioSystem.h>
 #include <assert.h>
+#include <cstring>
 #include <map>
 #include <algorithm>
 

@@ -14,6 +14,7 @@
 #include <TFE_Input/input.h>
 #include <TFE_RenderBackend/renderBackend.h>
 #include <assert.h>
+#include <cstring>
 #include <vector>
 #include <algorithm>
 

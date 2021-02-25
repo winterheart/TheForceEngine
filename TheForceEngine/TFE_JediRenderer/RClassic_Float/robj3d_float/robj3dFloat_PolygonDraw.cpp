@@ -15,6 +15,7 @@
 #include "../../rmath.h"
 #include "../../rcommon.h"
 #include "../../robject.h"
+#include <climits>
 
 namespace TFE_JediRenderer
 {

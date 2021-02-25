@@ -4,7 +4,7 @@
 // Dark Forces Derived Renderer - Wall functions
 //////////////////////////////////////////////////////////////////////
 #include <TFE_System/types.h>
-#include <TFE_Asset/modelAsset_jedi.h>
+#include <TFE_Asset/modelAsset_Jedi.h>
 
 namespace TFE_JediRenderer
 {

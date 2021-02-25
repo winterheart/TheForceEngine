@@ -2,6 +2,8 @@
 // Inline polygon render functions
 //////////////////////////////////////////////////////////////////////
 
+#include <climits>
+
 #if defined(POLY_INTENSITY) && !defined(POLY_UV)
 s32 robj3d_findNextEdgeI(s32 xMinIndex, s32 xMin)
 #elif !defined(POLY_INTENSITY) && defined(POLY_UV)

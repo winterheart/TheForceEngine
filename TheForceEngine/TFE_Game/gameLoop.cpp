@@ -29,6 +29,7 @@
 #include <TFE_WeaponSystem/weaponSystem.h>
 #include <TFE_Settings/settings.h>
 #include <assert.h>
+#include <cstring>
 #include <vector>
 #include <algorithm>
 
